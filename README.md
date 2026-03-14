@@ -11,12 +11,6 @@ Java, PostgreSQL, JDBC, PreparedStatement
 - Secure CRUD operations using PreparedStatement
 - Lifestyle-based compatibility quiz that recommends pet species
 
-## Database Structure
-- `users` — registered users
-- `pets` — available and adopted pets
-- `adoptions` — adoption records
-- `quiz_results` — quiz outcomes
-
 ## Database Diagram
 ![Database Schema](Database_Diagram.png)
 
