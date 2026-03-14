@@ -1,6 +1,4 @@
 
--- PetMatch — Pet Adoption Database
-
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     name    VARCHAR(100) NOT NULL,
@@ -37,8 +35,8 @@ INSERT INTO pets (name, species) VALUES
 
 
 INSERT INTO adoptions (user_id, pet_id) VALUES
-(1, 1),  -- Ana adopts Rex
-(2, 2);  -- Mihai adopts Whiskers
+(1, 1), 
+(2, 2);  
 
 
 UPDATE pets SET adopted = TRUE
@@ -58,14 +56,14 @@ JOIN pets  p ON a.pet_id  = p.pet_id;
 ALTER TABLE pets  ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
--- Add additional columns
+
 ALTER TABLE pets  ADD COLUMN age INT;
 ALTER TABLE users ADD COLUMN phone VARCHAR(20);
 
--- Index for faster species search
+
 CREATE INDEX idx_pets_species ON pets(species);
 
--- Index for faster adoption lookup by user
+
 CREATE INDEX idx_adoptions_user ON adoptions(user_id);
 
 
@@ -119,19 +117,17 @@ INSERT INTO pets (name, species, age) VALUES
 ('Nemo', 'Fish', 1),
 ('Dory', 'Fish', 1);
 
--- Reset all tables (order matters due to foreign keys)
+
 DELETE FROM quiz_results;
 DELETE FROM adoptions;
 DELETE FROM pets;
 DELETE FROM users;
 
--- Reset auto-increment sequences
 ALTER SEQUENCE users_user_id_seq     RESTART WITH 1;
 ALTER SEQUENCE pets_pet_id_seq       RESTART WITH 1;
 ALTER SEQUENCE adoptions_adoption_id_seq RESTART WITH 1;
 ALTER SEQUENCE quiz_results_result_id_seq RESTART WITH 1;
 
--- Final seed data
 INSERT INTO users (name, email, phone) VALUES
 ('Ana Pop',       'anapop@gmail.com',          '0721567601'),
 ('Mihai Ionescu', 'mihaiionescu@gmail.com',     '0721562236'),
