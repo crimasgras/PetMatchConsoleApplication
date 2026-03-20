@@ -2,7 +2,6 @@ import java.sql.*;
 
 public class Adoption_db {
 
-    // Adoptă un animal
     public void adoptPet(int userId, int petId) {
         String checkSql = "SELECT adopted FROM pets WHERE pet_id = ?";
         String insertSql = "INSERT INTO adoptions(user_id, pet_id) VALUES (?, ?)";
@@ -10,7 +9,6 @@ public class Adoption_db {
 
         try (Connection conn = DataBaseConnection.getConnection()) {
 
-            // Verifică dacă animalul e deja adoptat
             PreparedStatement checkStmt = conn.prepareStatement(checkSql);
             checkStmt.setInt(1, petId);
             ResultSet rs = checkStmt.executeQuery();
@@ -20,13 +18,11 @@ public class Adoption_db {
                 return;
             }
 
-            // Inserează adopția
             PreparedStatement insertStmt = conn.prepareStatement(insertSql);
             insertStmt.setInt(1, userId);
             insertStmt.setInt(2, petId);
             insertStmt.executeUpdate();
 
-            // Actualizează statusul animalului
             PreparedStatement updateStmt = conn.prepareStatement(updateSql);
             updateStmt.setInt(1, petId);
             updateStmt.executeUpdate();
@@ -38,7 +34,6 @@ public class Adoption_db {
         }
     }
 
-    // Afișează toate adopțiile
     public void showAdoptions() {
         String sql = """
                 SELECT u.name AS user_name,
