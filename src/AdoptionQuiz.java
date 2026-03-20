@@ -9,35 +9,30 @@ public class AdoptionQuiz {
         System.out.println("\n=== Find Your Perfect Pet ===");
         System.out.println("Answer a few questions to find your best match!\n");
 
-        // Q1
         System.out.println("Q1: How much space do you have?");
         System.out.println("  1. Small apartment");
         System.out.println("  2. Large apartment or house");
         System.out.print("Your answer: ");
         int q1 = scanner.nextInt();
 
-        // Q2
         System.out.println("\nQ2: How active are you?");
         System.out.println("  1. I prefer staying home");
         System.out.println("  2. I go out and exercise often");
         System.out.print("Your answer: ");
         int q2 = scanner.nextInt();
 
-        // Q3
         System.out.println("\nQ3: How much time do you spend at home daily?");
         System.out.println("  1. A lot — I work from home or stay in");
         System.out.println("  2. Not much — I am out most of the day");
         System.out.print("Your answer: ");
         int q3 = scanner.nextInt();
 
-        // Q4
         System.out.println("\nQ4: Have you had a pet before?");
         System.out.println("  1. No, this is my first time");
         System.out.println("  2. Yes, I have experience");
         System.out.print("Your answer: ");
         int q4 = scanner.nextInt();
-
-        // Q5
+        
         System.out.println("\nQ5: Do you have allergies?");
         System.out.println("  1. Yes, I am allergic to fur");
         System.out.println("  2. No allergies");
